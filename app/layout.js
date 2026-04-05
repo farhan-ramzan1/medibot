@@ -38,8 +38,21 @@ export default function RootLayout({ children }) {
 
           
           </ThemeProvider>
-             <script src="https://namiru.ai/widget.js"></script>
-             <script>NamiruChat.init({ agentId: 'c1cfa3af-ce84-4e10-a15e-8e94679e88c9' });</script>
+             <Script 
+  src="https://namiru.ai/widget.js" 
+  strategy="afterInteractive" 
+/>
+
+{/* 2. Initialize the chat using a template literal */}
+<Script id="namiru-chatbot" strategy="afterInteractive">
+  {`
+    window.addEventListener('load', function() {
+      if (window.NamiruChat) {
+        NamiruChat.init({ agentId: 'c1cfa3af-ce84-4e10-a15e-8e94679e88c9' });
+      }
+    });
+  `}
+</Script>
         </body>
       </html>
     </ClerkProvider>
