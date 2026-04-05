@@ -5,7 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/theme-provider";
-import Script from "next/script";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,22 +38,8 @@ export default function RootLayout({ children }) {
 
           
           </ThemeProvider>
-              <Script
-                    src="https://namiru.ai/widget.js"
-                     strategy="afterInteractive"
-                                        />
-
-                      <Script id="namiru-chat" strategy="afterInteractive">
-                      {`
-                 window.addEventListener("load", function () {
-                    if (window.NamiruChat) {
-                        window.NamiruChat.init({
-                      agentId: "c1cfa3af-ce84-4e10-a15e-8e94679e88c9"
-                  });
-                  }
-                   });
-                 `}
-                     </Script>
+             <script src="https://namiru.ai/widget.js"></script>
+             <script>NamiruChat.init({ agentId: 'c1cfa3af-ce84-4e10-a15e-8e94679e88c9' });</script>
         </body>
       </html>
     </ClerkProvider>
