@@ -1,11 +1,38 @@
 /** @type {import('next').NextConfig} */
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://namiru.ai https://*.clerk.accounts.dev;
-  connect-src 'self' https://namiru.ai https://api.namiru.ai https://*.clerk.accounts.dev https://clerk-telemetry.com;
-  worker-src 'self' blob:;
-  img-src 'self' data: blob: https://img.clerk.com;
-  style-src 'self' 'unsafe-inline';
+
+  script-src 
+    'self' 
+    'unsafe-inline' 
+    'unsafe-eval' 
+    blob: 
+    https://namiru.ai 
+    https://*.namiru.ai
+    https://*.clerk.accounts.dev;
+
+  connect-src 
+    'self' 
+    https://namiru.ai 
+    https://*.namiru.ai
+    https://api.namiru.ai 
+    https://*.clerk.accounts.dev 
+    https://clerk-telemetry.com
+    wss://*.namiru.ai;
+
+  worker-src 
+    'self' 
+    blob:;
+
+  img-src 
+    'self' 
+    data: 
+    blob: 
+    https://img.clerk.com;
+
+  style-src 
+    'self' 
+    'unsafe-inline';
 `;
 
 const nextConfig = {
